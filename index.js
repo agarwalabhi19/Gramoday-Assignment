@@ -45,7 +45,7 @@ app.post("/reports" , async function(req,res){
                 rep.save();
                 console.log(rep);
                 res.send({
-                    "status":"Sucess!",
+                    "status":"Success!",
                     "reportID":rep._id
                 });
                 
@@ -99,7 +99,7 @@ app.get("/reports/", function(req,res){
     let par=req.query.cmdtyID;
    // console.log(par);
   // console.log(Report.find().pretty());
-   Report.find({cmdtyID:par}, (err,data)=>
+   Report.findOne({cmdtyID:par}, (err,data)=>
     {
         if(err){
             console.log(err);
