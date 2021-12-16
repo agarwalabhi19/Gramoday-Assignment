@@ -94,36 +94,25 @@ app.post("/reports" , async function(req,res){
     });
     
 });
-
 app.get("/reports/", function(req,res){
     let par=req.query.cmdtyID;
-   // console.log(par);
-  // console.log(Report.find().pretty());
-   Report.findOne({cmdtyID:par}, (err,data)=>
+   Report.find({'cmdtyID':par}, (err,details)=>
     {
-        if(err){
+        if(err||!details.length){
             console.log(err);
         }
         else{
-            if(data==null)
+           
+            console.log(details);
+            details.map((done)=>
             {
-                res.send({});
-            }
-            else{
-            console.log(data);
-            const details={
-                _id:data._id,
-                cmdtyName:data.cmdtyName,
-                cmdtyID:data.cmdtyID,
-                marketID:data.marketID,
-                marketName:data.marketName,
-                users:data.users,
-                priceUnit:data.priceUnit,
-                minPrice:data.minPrice,
-                maxPrice:data.maxPrice
-            }
-            res.send(details);
-            }
+                done.minprices=undefined;
+                done.maxprices=undefined;
+                done.__v=undefined;
+
+            });
+            res.json(details);
+            
         }
     });
 });
