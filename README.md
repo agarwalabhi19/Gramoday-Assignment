@@ -1,4 +1,12 @@
 
+# Gramoday Assignment Task
+
+ Built a Node-Express JS API (using MongoDB) web-service which captures
+user contributed reports and returns an aggregate report in response.
+
+
+
+
 ## Installation and Run
 
 * Open command prompt 
@@ -7,6 +15,7 @@ $ git clone https://github.com/agarwalabhi19/Gramoday-Assignment.git
 $ cd ../path/to/the/file
 $ npm install
 ```
+
 * To run the project use command
 
 ```
@@ -21,6 +30,8 @@ conneced to DB!
 Server started on port 3000
 ```
 This indicates that server has started!
+
+If it shows error in mongoDB connection then paste own's url for connection.
 
 Now, to send POST or GET request to our server we can use POSTMAN or THUNDER CLIENT(extension in vs code).
 
